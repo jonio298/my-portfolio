@@ -9,73 +9,95 @@
     background-color: black;
     color: white;
     text-align: center;
-  }
-  
-  /* Background Video */
-  .hero-video-container {
+    overflow: hidden;
+}
+
+/* Background Video: Fullscreen on Desktop, Auto-Fit on Mobile */
+.hero-video-container {
     position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  
-  .hero-video {
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: 80%;
-  }
-  
-  /* Content */
-  .hero-content {
-    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Default (Desktop) - Fullscreen */
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps full coverage */
+}
+
+/* Mobile Fix (Prevents Cropping) */
+@media (max-width: 768px) {
+    .hero-video-container {
+        height: 100vh; /* Ensures full-screen height */
+        max-height: 500px; /* Prevents overflow */
+    }
+
+    .hero-video {
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain; /* Ensures full video is visible */
+    }
+}
+
+/* Content */
+.hero-content {
+    position: absolute;
     z-index: 10;
-    padding: 0 2.5rem; /* px-10 */
-  }
-  
-  /* Futuristic Glowing Title */
-  .hero-title {
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+/* Futuristic Glowing Title */
+.hero-title {
     font-size: 3rem; /* text-5xl */
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 0 0 8px rgba(0, 162, 255, 0.8), 0 0 16px rgba(0, 162, 255, 0.6);
     animation: flicker 1.5s infinite alternate;
-  }
-  
-  @media (min-width: 640px) {
+}
+
+@media (max-width: 768px) {
     .hero-title {
-      font-size: 4.5rem; /* sm:text-7xl */
+        font-size: 2rem;
     }
-  }
-  
-  /* Subtitle */
-  .hero-subtitle {
-    font-size: 1.25rem; /* text-lg */
+}
+
+/* Subtitle */
+.hero-subtitle {
+    font-size: 1.25rem;
     margin-top: 1rem;
     color: rgba(173, 216, 230, 0.9);
     text-shadow: 0 0 8px rgba(0, 162, 255, 0.5);
-  }
-  
-  @media (min-width: 640px) {
-    .hero-subtitle {
-      font-size: 1.5rem; /* sm:text-xl */
-    }
-  }
-  
-  /* Buttons */
-  .hero-buttons {
-    justify-content: center;  /* ✅ Centers horizontally */
-    display: flex;
-    gap: 1.2rem;
-    margin-top: 2rem;
-  }
+}
 
-  .button-icon {
-    display: inline-block; /* ✅ Ensures icon stays inline */
-    margin-right: 0.5rem; /* ✅ Adds spacing between icon and text */
-  
-  }
-  
-  .hero-button {
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.hero-button {
     padding: 0.75rem 2rem;
     font-size: 1.25rem;
     border-radius: 0.5rem;
@@ -88,69 +110,205 @@
     color: rgba(0, 162, 255, 0.9);
     box-shadow: 0 0 8px rgba(0, 162, 255, 0.7), 0 0 20px rgba(0, 162, 255, 0.5);
     backdrop-filter: blur(4px);
-  }
-  
-  /* Glowing Hover Effects */
-  .hero-button:hover {
+}
+
+/* Glowing Hover Effects */
+.hero-button:hover {
     background: rgba(0, 162, 255, 0.8);
     color: black;
     box-shadow: 0 0 20px rgba(0, 162, 255, 1), 0 0 40px rgba(0, 162, 255, 0.9);
     transform: scale(1.1);
-  }
-  
-  /* Futuristic Flicker Effect */
-  @keyframes flicker {
+}
+
+/* Button Icon Styling */
+.button-icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Responsive Button Adjustments */
+@media (max-width: 480px) {
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Futuristic Flicker Effect */
+@keyframes flicker {
     0% {
-      opacity: 1;
-      text-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 0 0 20px rgba(0, 162, 255, 0.6);
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 0 0 20px rgba(0, 162, 255, 0.6);
     }
     100% {
-      opacity: 0.8;
-      text-shadow: 0 0 14px rgba(0, 162, 255, 1), 0 0 28px rgba(0, 162, 255, 0.8);
+        opacity: 0.8;
+        text-shadow: 0 0 14px rgba(0, 162, 255, 1), 0 0 28px rgba(0, 162, 255, 0.8);
     }
-  }
-  /* Portfolio Page Styles */
+}
+
+/* Portfolio Page Styles */
 .portfolio-container {
     padding: 2.5rem;
     min-height: 100vh;
     background-color: black;
     text-align: center;
     color: white;
-  }
-  
-  /* Glowing Heading */
-  .portfolio-title {
+}
+
+/* Glowing Heading */
+.portfolio-title {
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 0 0 20px rgba(0, 162, 255, 0.6);
     animation: flicker 1.5s infinite alternate;
-  }
-  
-  @media (min-width: 640px) {
+}
+
+@media (max-width: 768px) {
     .portfolio-title {
-      font-size: 4rem;
+        font-size: 2.5rem;
     }
-  }
-  
-  /* Image Grid */
-  .image-grid {
+}
+
+/* Image Grid */
+.image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
-  }
-  
-  /* Hover Animation for Images */
-  .image-item {
+}
+
+/* Hover Animation for Images */
+.image-item {
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 0 8px rgba(0, 162, 255, 0.7);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  .image-item:hover {
+}
+
+.image-item:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(0, 162, 255, 1);
-  }
-  
+}
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+}
+
+/* Logo */
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Desktop Links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: #00a2ff;
+}
+
+/* Hide Desktop Links on Small Screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+/* Hamburger Button */
+.hamburger {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+/* Show Hamburger on Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Mobile Menu (Fixed) */
+.mobile-menu {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-menu li {
+    margin: 10px 0;
+}
+
+.mobile-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.mobile-menu li a:hover {
+    color: #00a2ff;
+}
+
+/* Fix menu duplication issue */
+.mobile-menu button {
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

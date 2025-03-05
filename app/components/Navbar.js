@@ -1,21 +1,41 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import "../styles.css";
 
 export default function Navbar() {
-  return (
-    <nav className="bg-gray-900 p-4 text-white fixed top-0 w-full z-50 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <h1 className="text-xl font-bold">
-          <Link href="/">DroneVision</Link>
-        </h1>
+  const [isOpen, setIsOpen] = useState(false);
 
-        {/* Menu Items */}
-        <ul className="hidden md:flex space-x-6">
-          <li><Link href="/" className="hover:text-gray-400">Home</Link></li>
-          <li><Link href="/portfolio" className="hover:text-gray-400">Portfolio</Link></li>
-          <li><Link href="/contact" className="hover:text-gray-400">Contact</Link></li>
-        </ul>
-      </div>
+  return (
+    <nav className="navbar">
+      {/* Logo */}
+      <div className="nav-logo">DroneVision</div>
+
+      {/* Desktop Nav Links */}
+      <ul className="nav-links">
+        <li><Link href="/">Home</Link></li>
+        <li><Link href="/portfolio">Portfolio</Link></li>
+        <li><Link href="/services">Services</Link></li>
+        <li><Link href="/contact">Contact</Link></li>
+      </ul>
+
+      {/* Hamburger Icon (Mobile) */}
+      <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <X size={30} /> : <Menu size={30} />}
+      </button>
+
+      {/* Mobile Menu (Fixed) */}
+      {isOpen && (
+        <div className="mobile-menu">
+          <ul>
+            <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+            <li><Link href="/portfolio" onClick={() => setIsOpen(false)}>Portfolio</Link></li>
+            <li><Link href="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
+            <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
