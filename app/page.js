@@ -1,39 +1,32 @@
-import Image from "next/image";
+"use client";
+
+import "./styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImages, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Satellite } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center">
-      {/* Background Video/Image */}
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover opacity-50"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
+    <main className="hero-container">
+      <div className="hero-video-container">
+        <video className="hero-video" autoPlay loop muted playsInline>
           <source src="/drone-footage.mp4" type="video/mp4" />
         </video>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6">
-        <h1 className="text-5xl sm:text-7xl font-bold">Aerial Perspectives</h1>
-        <p className="text-lg sm:text-xl mt-4">Capturing the world from above</p>
+      <div className="hero-content">
+        <h1 className="hero-title">Aerial Perspectives</h1>
+        <p className="hero-subtitle">Capturing the world from above</p>
 
-        {/* Buttons */}
-        <div className="mt-6 flex gap-4">
-          <a
-            href="/portfolio"
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg"
-          >
-            View Portfolio
+        <div className="hero-buttons">
+          <a href="/portfolio" className="hero-button hero-button-primary">
+            <FontAwesomeIcon icon={faImages} className="button-icon" /> <span>Portfolio</span>
           </a>
-          <a
-            href="/contact"
-            className="px-6 py-3 border border-white rounded-lg text-lg hover:bg-white hover:text-black"
-          >
-            Contact Me
+          <a href="/services" className="hero-button hero-button-secondary">
+            <Satellite className="button-icon" size={30} /> <span>Services</span>
+          </a>
+          <a href="/contact" className="hero-button hero-button-secondary">
+            <FontAwesomeIcon icon={faEnvelope} className="button-icon" /> <span>Contact Me</span>
           </a>
         </div>
       </div>

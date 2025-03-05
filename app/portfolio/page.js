@@ -1,21 +1,35 @@
+"use client";
+import "../styles.css";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Portfolio() {
+  const [videoIndex, setVideoIndex] = useState(0);
+
+  // Example video sources (replace with actual URLs if hosting externally)
+  const videos = ["/drone-footage.mp4", "/drone-footage2.mp4", "/drone-footage3.mp4"];
+
+  const nextVideo = () => setVideoIndex((videoIndex + 1) % videos.length);
+  const prevVideo = () => setVideoIndex((videoIndex - 1 + videos.length) % videos.length);
+
   return (
-    <main className="p-10 bg-black text-white min-h-screen">
-      <h1 className="text-4xl font-bold mb-6 text-center">My Drone Photography</h1>
+    <main className="portfolio-container">
+      {/* Title */}
+      {/* <h1 className="portfolio-title">My Drone Photography</h1> */}
 
       {/* Image Gallery */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <Image src="/images/drone1.jpg" alt="Drone Shot 1" width={500} height={300} className="rounded-lg" />
-        <Image src="/images/drone2.jpg" alt="Drone Shot 2" width={500} height={300} className="rounded-lg" />
-        <Image src="/images/drone3.jpg" alt="Drone Shot 3" width={500} height={300} className="rounded-lg" />
+      <div className="image-grid">
+        <Image src="/images/drone1.jpg" alt="Drone Shot 1" width={500} height={300} className="image-item" />
+        <Image src="/images/drone2.jpg" alt="Drone Shot 2" width={500} height={300} className="image-item" />
+        <Image src="/images/drone3.jpg" alt="Drone Shot 3" width={500} height={300} className="image-item" />
       </div>
-
+    
       {/* Video Section */}
-      <h2 className="text-3xl font-bold mt-10 mb-4">Aerial Videos</h2>
-      <div className="flex justify-center">
-        <video className="w-full max-w-3xl rounded-lg" src="/drone-footage.mp4" controls />
+      {/* <h2 className="portfolio-title mt-10">Aerial Videos</h2> */}
+      <div className="video-container">
+        {/* <button onClick={prevVideo} className="hero-button hero-button-secondary">⟨</button> */}
+        <video className="video-slider" key={videoIndex} src={videos[videoIndex]} controls />
+        {/* <button onClick={nextVideo} className="hero-button hero-button-secondary">⟩</button> */}
       </div>
     </main>
   );

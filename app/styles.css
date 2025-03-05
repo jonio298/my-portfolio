@@ -1,0 +1,156 @@
+/* General Styles */
+.hero-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Background Video */
+  .hero-video-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 80%;
+  }
+  
+  /* Content */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 0 2.5rem; /* px-10 */
+  }
+  
+  /* Futuristic Glowing Title */
+  .hero-title {
+    font-size: 3rem; /* text-5xl */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(0, 162, 255, 0.8), 0 0 16px rgba(0, 162, 255, 0.6);
+    animation: flicker 1.5s infinite alternate;
+  }
+  
+  @media (min-width: 640px) {
+    .hero-title {
+      font-size: 4.5rem; /* sm:text-7xl */
+    }
+  }
+  
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: 1.25rem; /* text-lg */
+    margin-top: 1rem;
+    color: rgba(173, 216, 230, 0.9);
+    text-shadow: 0 0 8px rgba(0, 162, 255, 0.5);
+  }
+  
+  @media (min-width: 640px) {
+    .hero-subtitle {
+      font-size: 1.5rem; /* sm:text-xl */
+    }
+  }
+  
+  /* Buttons */
+  .hero-buttons {
+    justify-content: center;  /* ✅ Centers horizontally */
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .button-icon {
+    display: inline-block; /* ✅ Ensures icon stays inline */
+    margin-right: 0.5rem; /* ✅ Adds spacing between icon and text */
+  
+  }
+  
+  .hero-button {
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 2px solid rgba(0, 162, 255, 0.8);
+    color: rgba(0, 162, 255, 0.9);
+    box-shadow: 0 0 8px rgba(0, 162, 255, 0.7), 0 0 20px rgba(0, 162, 255, 0.5);
+    backdrop-filter: blur(4px);
+  }
+  
+  /* Glowing Hover Effects */
+  .hero-button:hover {
+    background: rgba(0, 162, 255, 0.8);
+    color: black;
+    box-shadow: 0 0 20px rgba(0, 162, 255, 1), 0 0 40px rgba(0, 162, 255, 0.9);
+    transform: scale(1.1);
+  }
+  
+  /* Futuristic Flicker Effect */
+  @keyframes flicker {
+    0% {
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 0 0 20px rgba(0, 162, 255, 0.6);
+    }
+    100% {
+      opacity: 0.8;
+      text-shadow: 0 0 14px rgba(0, 162, 255, 1), 0 0 28px rgba(0, 162, 255, 0.8);
+    }
+  }
+  /* Portfolio Page Styles */
+.portfolio-container {
+    padding: 2.5rem;
+    min-height: 100vh;
+    background-color: black;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Glowing Heading */
+  .portfolio-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 0 0 20px rgba(0, 162, 255, 0.6);
+    animation: flicker 1.5s infinite alternate;
+  }
+  
+  @media (min-width: 640px) {
+    .portfolio-title {
+      font-size: 4rem;
+    }
+  }
+  
+  /* Image Grid */
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  /* Hover Animation for Images */
+  .image-item {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 162, 255, 0.7);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .image-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 162, 255, 1);
+  }
+  
