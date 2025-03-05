@@ -10,7 +10,11 @@ export default function Home() {
     <main className="hero-container">
       <div className="hero-video-container">
         <video className="hero-video" autoPlay loop muted playsInline>
-          <source src="/drone-footage.mp4" type="video/mp4" />
+          <source 
+            src="https://www.dropbox.com/scl/fi/9oehyw355ymbl42ux15gk/drone-footage.mp4?rlkey=k8ev4ywtsoki6yfj0mi0xdg6f&st=byg693wj&raw=1" 
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
         </video>
       </div>
 
