@@ -9,8 +9,10 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      {/* Logo */}
-      <div className="nav-logo">DroneVision</div>
+      {/* Logo with Link (Corrected) */}
+      <Link href="/" legacyBehavior>
+        <a className="nav-logo">DroneVision</a>
+      </Link>
 
       {/* Desktop Nav Links */}
       <ul className="nav-links">
