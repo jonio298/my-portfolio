@@ -349,21 +349,26 @@
 .scroller-button:hover {
     transform: scale(1.2);
 }
-@keyframes pulseGlow {
+@keyframes glowPulse {
     0% {
-        text-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 0 0 20px rgba(0, 162, 255, 0.6);
+        box-shadow: 0 0 10px rgba(0, 162, 255, 0.7), 0 0 20px rgba(0, 162, 255, 0.5);
     }
     50% {
-        text-shadow: 0 0 20px rgba(0, 162, 255, 1), 0 0 40px rgba(0, 162, 255, 0.9);
-        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 162, 255, 1), 0 0 40px rgba(0, 162, 255, 0.8);
     }
     100% {
-        text-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 0 0 20px rgba(0, 162, 255, 0.6);
-        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 162, 255, 0.7), 0 0 20px rgba(0, 162, 255, 0.5);
     }
 }
 
-.glowing-icon {
-    animation: pulseGlow 1.5s infinite alternate ease-in-out;
+.glowing-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;  /* Adjust as needed */
+    height: 220px; /* Adjust as needed */
+    border-radius: 50%;
+    background: rgba(0, 162, 255, 0.2);
+    animation: glowPulse 1.5s infinite alternate ease-in-out;
 }
 

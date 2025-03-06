@@ -5,9 +5,9 @@ import { FaCamera, FaVideo, FaCalendar } from "react-icons/fa6";
 
 export default function Portfolio() {
   const categories = [
-    { name: "Still Shots", icon: <FaCamera className="glowing-icon" size={200} color="#00a2ff" /> },
-    { name: "Videos", icon: <FaVideo className="glowing-icon" size={200} color="#00a2ff" /> },
-    { name: "Events", icon: <FaCalendar className="glowing-icon" size={200} color="#00a2ff" /> },
+    { name: "Still Shots", icon: <FaCamera size={200} color="#00a2ff" /> },
+    { name: "Videos", icon: <FaVideo size={200} color="#00a2ff" /> },
+    { name: "Events", icon: <FaCalendar size={200} color="#00a2ff" /> },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,7 +30,9 @@ export default function Portfolio() {
       <div className="category-scroller">
         <button className="scroller-button" onClick={prevCategory}>⟨</button>
         <div className="category-display centered">
-          {categories[currentIndex].icon}
+          <div className="glowing-icon-container">
+            {categories[currentIndex].icon}
+          </div>
           <h2 className="category-title">{categories[currentIndex].name}</h2>
         </div>
         <button className="scroller-button" onClick={nextCategory}>⟩</button>
