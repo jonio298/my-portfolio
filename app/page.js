@@ -37,7 +37,7 @@ export default function Home() {
 
       {/* Designed by Credit */}
       <div className="credit-container">
-        Designed in React by Jonathan Shelley Test
+        Designed in React by Jonathan Shelley
       </div>
     </main>
   );
